@@ -40,68 +40,46 @@ function App() {
                   e.preventDefault();
                   handleMenuClick(item.name);
                 }}
-                className={`block px-4 py-3 rounded-lg transition-all duration-200 ${
+                className={`menu-item block px-4 py-3 rounded-lg relative ${
                   activeMenuItem === item.name
-                    ? 'text-[#01ae81]'
+                    ? 'text-[#01ae81] active'
                     : 'hover:text-[#01ae81]'
                 }`}
-                style={
-                  activeMenuItem === item.name
-                    ? {
-                        transition: 'all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s',
-                        textIndent: '80px',
-                        position: 'relative'
-                      }
-                    : {
-                        transition: 'all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s',
-                        textIndent: '0px',
-                        position: 'relative'
-                      }
-                }
-                onMouseEnter={(e) => {
-                  if (activeMenuItem !== item.name) {
-                    e.currentTarget.style.textIndent = '80px';
-                    const line = e.currentTarget.querySelector('.hover-line') as HTMLElement;
-                    if (line) {
-                      line.style.width = '32px';
-                    }
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (activeMenuItem !== item.name) {
-                    e.currentTarget.style.textIndent = '0px';
-                    const line = e.currentTarget.querySelector('.hover-line') as HTMLElement;
-                    if (line) {
-                      line.style.width = '0px';
-                    }
-                  }
-                }}
               >
-                {activeMenuItem === item.name && (
-                  <span
-                    className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#01ae81]"
-                    style={{
-                      height: '1px',
-                      width: '32px',
-                      transition: 'all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s'
-                    }}
-                  />
-                )}
-                {activeMenuItem !== item.name && (
-                  <span
-                    className="hover-line absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#01ae81]"
-                    style={{
-                      height: '1px',
-                      width: '0px',
-                      transition: 'all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s'
-                    }}
-                  />
-                )}
                 {item.name}
               </a>
             </li>
           ))}
         </ul>
+
+        <style jsx>{`
+          .menu-item {
+            transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+            text-indent: 0px;
+          }
+
+          .menu-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 1px;
+            width: 0px;
+            background-color: #01ae81;
+            transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+          }
+
+          .menu-item:hover::before,
+          .menu-item.active::before {
+            width: 32px;
+          }
+
+          .menu-item:hover,
+          .menu-item.active {
+            text-indent: 80px;
+          }
+        `}</style>
 
       </nav>
 
