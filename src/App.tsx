@@ -77,7 +77,7 @@ function App() {
 
           .menu-item:hover,
           .menu-item.active {
-            text-indent: 80px;
+            text-indent: 40px;
           }
         `}</style>
 
