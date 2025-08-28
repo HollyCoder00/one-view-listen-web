@@ -45,7 +45,30 @@ function App() {
                     ? 'text-[#01ae81]'
                     : 'hover:text-[#01ae81]'
                 }`}
+                style={
+                  activeMenuItem === item.name
+                    ? {
+                        transition: 'all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s',
+                        textIndent: '80px',
+                        position: 'relative'
+                      }
+                    : {
+                        transition: 'all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s',
+                        textIndent: '0px',
+                        position: 'relative'
+                      }
+                }
               >
+                {activeMenuItem === item.name && (
+                  <span
+                    className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#01ae81]"
+                    style={{
+                      height: '1px',
+                      width: '32px',
+                      transition: 'all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s'
+                    }}
+                  />
+                )}
                 {item.name}
               </a>
             </li>
