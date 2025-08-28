@@ -198,11 +198,6 @@ function App() {
                 </li>
               ))}
             </ul>
-
-            <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-200">
-              <p className="text-gray-600">13901189015</p>
-              <p className="text-gray-600 mt-1">tanzozhuangzhe@126.com</p>
-            </div>
           </div>
         )}
       </nav>
