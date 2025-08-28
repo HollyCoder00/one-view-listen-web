@@ -229,7 +229,7 @@ function App() {
         
         {/* Footer */}
         <footer className="fixed bottom-0 right-0 z-10">
-            <p className="text-white">&copy; 2024 TANZO SPACE DESIGN. {t('footer.copyright')}</p>
+            <p className="text-[#eaecf0]">&copy; 2024 TANZO SPACE DESIGN. {t('footer.copyright')}</p>
         </footer>
       </main>
     </div>
