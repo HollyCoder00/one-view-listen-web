@@ -1,9 +1,9 @@
 {
   "nav": {
     "home": "首页",
-    "projects": "项目展示",
-    "services": "业务范围",
-    "news": "新闻资讯",
+    "news": "新闻&活动",
+    "case": "案例",
+    "business": "业务范围",
     "about": "关于我们",
     "contact": "联系方式",
     "careers": "加入我们"
