@@ -241,28 +241,6 @@ function App() {
         
         {/* Footer */}
         <footer className="bg-gray-50 text-gray-800 py-12 px-6 lg:px-12">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <h3 className="text-xl font-bold mb-4">{t('footer.company')}</h3>
-                <p className="text-gray-600">
-                  {t('footer.description')}
-                </p>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-4">{t('footer.contact')}</h4>
-                <p className="text-gray-600">{t('footer.phone')}: 13901189015</p>
-                <p className="text-gray-600">{t('footer.email')}: tanzozhuangzhe@126.com</p>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h4>
-                <ul className="space-y-2">
-                  <li><a href="#about" className="text-gray-600 hover:text-[#01ae81] transition-colors">{t('nav.about')}</a></li>
-                  <li><a href="#services" className="text-gray-600 hover:text-[#01ae81] transition-colors">{t('nav.services')}</a></li>
-                  <li><a href="#contact" className="text-gray-600 hover:text-[#01ae81] transition-colors">{t('nav.contact')}</a></li>
-                </ul>
-              </div>
-            </div>
             <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
               <p>&copy; 2024 TANZO SPACE DESIGN. {t('footer.copyright')}</p>
             </div>
