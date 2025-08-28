@@ -10,9 +10,9 @@ function App() {
 
   const navigationItems = [
     { key: 'home', href: '#home' },
-    { key: 'projects', href: '#projects' },
-    { key: 'services', href: '#services' },
     { key: 'news', href: '#news' },
+    { key: 'case', href: '#case' },
+    { key: 'business', href: '#business' },
     { key: 'about', href: '#about' },
     { key: 'contact', href: '#contact' },
     { key: 'careers', href: '#careers' }
