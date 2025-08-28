@@ -225,13 +225,6 @@ function App() {
               {t('hero.subtitle')}
             </p>
           </div>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white opacity-60">
-            <div className="animate-bounce">
-              <div className="w-1 h-8 bg-white rounded-full mx-auto"></div>
-            </div>
-          </div>
         </section>
         
         {/* Footer */}
