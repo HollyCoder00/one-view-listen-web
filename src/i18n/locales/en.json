@@ -1,9 +1,9 @@
 {
   "nav": {
     "home": "Home",
-    "projects": "Projects",
-    "services": "Services",
-    "news": "News",
+    "news": "News & Event",
+    "case": "Case",
+    "business": "Business Scope",
     "about": "About Us",
     "contact": "Contact",
     "careers": "Careers"
