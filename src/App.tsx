@@ -130,9 +130,6 @@ function App() {
             <p className="text-lg md:text-xl lg:text-2xl mb-8 opacity-90">
               那曲服饰馆 / 那曲品牌体验
             </p>
-            <button className="bg-[#01ae81] hover:bg-[#019a73] text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-200 transform hover:scale-105 hover:shadow-lg">
-              了解更多
-            </button>
           </div>
 
           {/* Scroll Indicator */}
