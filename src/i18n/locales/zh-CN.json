@@ -1,0 +1,29 @@
+{
+  "nav": {
+    "home": "首页",
+    "projects": "项目展示",
+    "services": "业务范围",
+    "news": "新闻资讯",
+    "about": "关于我们",
+    "contact": "联系方式",
+    "careers": "加入我们"
+  },
+  "hero": {
+    "title": "Naqu costume experience space",
+    "subtitle": "那曲服饰馆 / 那曲品牌体验"
+  },
+  "footer": {
+    "company": "TANZO",
+    "description": "专业的设计与体验空间解决方案提供商",
+    "contact": "联系信息",
+    "phone": "电话",
+    "email": "邮箱",
+    "quickLinks": "快速链接",
+    "copyright": "版权所有 京ICP备10017292号"
+  },
+  "language": {
+    "zh-CN": "简体中文",
+    "en": "English",
+    "ja": "日本語"
+  }
+}

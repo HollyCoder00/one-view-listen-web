@@ -1,0 +1,29 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "services": "Services",
+    "news": "News",
+    "about": "About Us",
+    "contact": "Contact",
+    "careers": "Careers"
+  },
+  "hero": {
+    "title": "Naqu costume experience space",
+    "subtitle": "Naqu Costume Museum / Naqu Brand Experience"
+  },
+  "footer": {
+    "company": "TANZO",
+    "description": "Professional design and experience space solution provider",
+    "contact": "Contact Information",
+    "phone": "Phone",
+    "email": "Email",
+    "quickLinks": "Quick Links",
+    "copyright": "All rights reserved. ICP License: 10017292"
+  },
+  "language": {
+    "zh-CN": "简体中文",
+    "en": "English",
+    "ja": "日本語"
+  }
+}

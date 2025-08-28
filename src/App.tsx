@@ -1,28 +1,43 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 function App() {
+  const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeMenuItem, setActiveMenuItem] = useState('首页');
+  const [activeMenuItem, setActiveMenuItem] = useState('home');
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
 
   const navigationItems = [
-    { name: '首页', href: '#home' },
-    { name: '项目展示', href: '#projects' },
-    { name: '业务范围', href: '#services' },
-    { name: '新闻资讯', href: '#news' },
-    { name: '关于我们', href: '#about' },
-    { name: '联系方式', href: '#contact' },
-    { name: '加入我们', href: '#careers' }
+    { key: 'home', href: '#home' },
+    { key: 'projects', href: '#projects' },
+    { key: 'services', href: '#services' },
+    { key: 'news', href: '#news' },
+    { key: 'about', href: '#about' },
+    { key: 'contact', href: '#contact' },
+    { key: 'careers', href: '#careers' }
+  ];
+
+  const languages = [
+    { code: 'zh-CN', name: t('language.zh-CN') },
+    { code: 'en', name: t('language.en') },
+    { code: 'ja', name: t('language.ja') }
   ];
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleMenuClick = (itemName: string) => {
-    setActiveMenuItem(itemName);
+  const handleMenuClick = (itemKey: string) => {
+    setActiveMenuItem(itemKey);
     setIsMobileMenuOpen(false); // Close mobile menu when item is clicked
   };
+
+  const changeLanguage = (langCode: string) => {
+    i18n.changeLanguage(langCode);
+    setIsLanguageMenuOpen(false);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Desktop Sidebar Navigation */}
@@ -38,19 +53,46 @@ function App() {
                 href={item.href}
                 onClick={(e) => {
                   e.preventDefault();
-                  handleMenuClick(item.name);
+                  handleMenuClick(item.key);
                 }}
                 className={`menu-item block px-4 py-3 rounded-lg relative ${
-                  activeMenuItem === item.name
+                  activeMenuItem === item.key
                     ? 'text-[#01ae81] active'
                     : 'hover:text-[#01ae81]'
                 }`}
               >
-                {item.name}
+                {t(`nav.${item.key}`)}
               </a>
             </li>
           ))}
         </ul>
+
+        {/* Language Switcher - Desktop */}
+        <div className="px-4 pb-6 relative">
+          <button
+            onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+            className="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:text-[#01ae81] transition-colors duration-200 w-full"
+          >
+            <Globe size={18} />
+            <span className="text-sm">{languages.find(lang => lang.code === i18n.language)?.name}</span>
+          </button>
+          
+          {isLanguageMenuOpen && (
+            <div className="absolute bottom-full left-4 right-4 mb-2 bg-white border border-gray-200 rounded-lg shadow-lg py-2">
+              {languages.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => changeLanguage(lang.code)}
+                  className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors duration-200 ${
+                    i18n.language === lang.code ? 'text-[#01ae81] bg-gray-50' : 'text-gray-700'
+                  }`}
+                >
+                  {lang.name}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
 
         <style jsx>{`
           .menu-item {
@@ -85,14 +127,42 @@ function App() {
 
       {/* Mobile Top Navigation */}
       <nav className="lg:hidden bg-white text-gray-800 shadow-lg" style={{boxShadow: '0 1px 6px rgba(0, 0, 0, 0.06)'}}>
-        <div className="flex items-center justify-between px-4 py-4">
+        <div className="flex items-center justify-between px-4 py-4 relative">
           <h1 className="text-xl font-bold tracking-wider text-gray-800">TANZO</h1>
-          <button
-            onClick={toggleMobileMenu}
-            className="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
-          >
-            {isMobileMenuOpen ? <X size={24} className="text-gray-800" /> : <Menu size={24} className="text-gray-800" />}
-          </button>
+          <div className="flex items-center space-x-2">
+            {/* Language Switcher - Mobile */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+              >
+                <Globe size={20} className="text-gray-800" />
+              </button>
+              
+              {isLanguageMenuOpen && (
+                <div className="absolute top-full right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg py-2 min-w-[120px] z-50">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => changeLanguage(lang.code)}
+                      className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors duration-200 ${
+                        i18n.language === lang.code ? 'text-[#01ae81] bg-gray-50' : 'text-gray-700'
+                      }`}
+                    >
+                      {lang.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            
+            <button
+              onClick={toggleMobileMenu}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+            >
+              {isMobileMenuOpen ? <X size={24} className="text-gray-800" /> : <Menu size={24} className="text-gray-800" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu Overlay */}
@@ -115,15 +185,15 @@ function App() {
                     href={item.href}
                     onClick={(e) => {
                       e.preventDefault();
-                      handleMenuClick(item.name);
+                      handleMenuClick(item.key);
                     }}
                     className={`block px-4 py-4 rounded-lg transition-all duration-200 text-lg ${
-                      activeMenuItem === item.name
+                      activeMenuItem === item.key
                         ? 'text-[#01ae81]'
                         : 'hover:text-[#01ae81]'
                     }`}
                   >
-                    {item.name}
+                    {t(`nav.${item.key}`)}
                   </a>
                 </li>
               ))}
@@ -154,10 +224,10 @@ function App() {
           {/* Hero Content */}
           <div className="relative z-10 text-center text-white px-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-wide">
-              Naqu costume experience space
+              {t('hero.title')}
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl mb-8 opacity-90">
-              那曲服饰馆 / 那曲品牌体验
+              {t('hero.subtitle')}
             </p>
           </div>
 
@@ -174,27 +244,27 @@ function App() {
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8">
               <div>
-                <h3 className="text-xl font-bold mb-4">TANZO</h3>
+                <h3 className="text-xl font-bold mb-4">{t('footer.company')}</h3>
                 <p className="text-gray-600">
-                  专业的设计与体验空间解决方案提供商
+                  {t('footer.description')}
                 </p>
               </div>
               <div>
-                <h4 className="text-lg font-semibold mb-4">联系信息</h4>
-                <p className="text-gray-600">电话: 13901189015</p>
-                <p className="text-gray-600">邮箱: tanzozhuangzhe@126.com</p>
+                <h4 className="text-lg font-semibold mb-4">{t('footer.contact')}</h4>
+                <p className="text-gray-600">{t('footer.phone')}: 13901189015</p>
+                <p className="text-gray-600">{t('footer.email')}: tanzozhuangzhe@126.com</p>
               </div>
               <div>
-                <h4 className="text-lg font-semibold mb-4">快速链接</h4>
+                <h4 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h4>
                 <ul className="space-y-2">
-                  <li><a href="#about" className="text-gray-600 hover:text-[#01ae81] transition-colors">关于我们</a></li>
-                  <li><a href="#services" className="text-gray-600 hover:text-[#01ae81] transition-colors">业务范围</a></li>
-                  <li><a href="#contact" className="text-gray-600 hover:text-[#01ae81] transition-colors">联系方式</a></li>
+                  <li><a href="#about" className="text-gray-600 hover:text-[#01ae81] transition-colors">{t('nav.about')}</a></li>
+                  <li><a href="#services" className="text-gray-600 hover:text-[#01ae81] transition-colors">{t('nav.services')}</a></li>
+                  <li><a href="#contact" className="text-gray-600 hover:text-[#01ae81] transition-colors">{t('nav.contact')}</a></li>
                 </ul>
               </div>
             </div>
             <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
-              <p>&copy; 2024 TANZO SPACE DESIGN. 版权所有 京ICP备10017292号</p>
+              <p>&copy; 2024 TANZO SPACE DESIGN. {t('footer.copyright')}</p>
             </div>
           </div>
         </footer>
