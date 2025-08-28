@@ -119,8 +119,8 @@ function App() {
                     }}
                     className={`block px-4 py-4 rounded-lg transition-all duration-200 text-lg ${
                       activeMenuItem === item.name
-                        ? 'bg-[#01ae81] text-white'
-                        : 'text-gray-600 hover:bg-[#01ae81] hover:text-white'
+                        ? 'text-[#01ae81]'
+                        : 'hover:text-[#01ae81]'
                     }`}
                   >
                     {item.name}
