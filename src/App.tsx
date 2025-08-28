@@ -58,6 +58,24 @@ function App() {
                         position: 'relative'
                       }
                 }
+                onMouseEnter={(e) => {
+                  if (activeMenuItem !== item.name) {
+                    e.currentTarget.style.textIndent = '80px';
+                    const line = e.currentTarget.querySelector('.hover-line') as HTMLElement;
+                    if (line) {
+                      line.style.width = '32px';
+                    }
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (activeMenuItem !== item.name) {
+                    e.currentTarget.style.textIndent = '0px';
+                    const line = e.currentTarget.querySelector('.hover-line') as HTMLElement;
+                    if (line) {
+                      line.style.width = '0px';
+                    }
+                  }
+                }}
               >
                 {activeMenuItem === item.name && (
                   <span
@@ -65,6 +83,16 @@ function App() {
                     style={{
                       height: '1px',
                       width: '32px',
+                      transition: 'all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s'
+                    }}
+                  />
+                )}
+                {activeMenuItem !== item.name && (
+                  <span
+                    className="hover-line absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#01ae81]"
+                    style={{
+                      height: '1px',
+                      width: '0px',
                       transition: 'all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s'
                     }}
                   />
