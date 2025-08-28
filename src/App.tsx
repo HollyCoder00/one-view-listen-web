@@ -142,36 +142,7 @@ function App() {
             </div>
           </div>
         </section>
-
-        {/* Additional Content Section */}
-        <section className="py-20 px-6 lg:px-12">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-8 text-center">
-              项目展示
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3, 4, 5, 6].map((item) => (
-                <div key={item} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                  <div 
-                    className="h-48 bg-cover bg-center"
-                    style={{
-                      backgroundImage: `url('https://images.pexels.com/photos/${161758 + item}/pexels-photo-${161758 + item}.jpeg?auto=compress&cs=tinysrgb&w=600')`
-                    }}
-                  ></div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                      项目 {item}
-                    </h3>
-                    <p className="text-gray-600">
-                      这是一个精心设计的项目展示，体现了我们在设计和施工方面的专业能力。
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
+        
         {/* Footer */}
         <footer className="bg-gray-50 text-gray-800 py-12 px-6 lg:px-12">
           <div className="max-w-4xl mx-auto">
