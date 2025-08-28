@@ -235,9 +235,9 @@ function App() {
         </section>
         
         {/* Footer */}
-        <footer className="bg-gray-50 text-gray-800 py-12 px-6 lg:px-12">
+        <footer className="bg-gray-50 text-gray-800 px-6 lg:px-12">
           <div className="max-w-4xl mx-auto">
-            <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
+            <div className="border-gray-200 mt-8 pt-8 text-center text-gray-600">
               <p>&copy; 2024 TANZO SPACE DESIGN. {t('footer.copyright')}</p>
             </div>
           </div>
