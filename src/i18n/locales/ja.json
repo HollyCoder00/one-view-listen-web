@@ -1,9 +1,9 @@
 {
   "nav": {
     "home": "ホーム",
-    "projects": "プロジェクト",
-    "services": "サービス",
-    "news": "ニュース",
+    "news": "ニュース＆イベント",
+    "case": "ケース",
+    "business": "業務範囲",
     "about": "会社概要",
     "contact": "お問い合わせ",
     "careers": "採用情報"
