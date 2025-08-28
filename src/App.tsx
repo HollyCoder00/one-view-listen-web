@@ -228,7 +228,7 @@ function App() {
         </section>
         
         {/* Footer */}
-        <footer className="fixed bottom-0 right-0 z-10 text-['#999']">
+        <footer className="fixed bottom-0 right-0 z-10 text-['#eaecf0']">
             <p>&copy; 2024 TANZO SPACE DESIGN. {t('footer.copyright')}</p>
         </footer>
       </main>
